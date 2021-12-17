@@ -33,7 +33,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   }
 };
 
-export default function Books() {
+export default function BooksRoute() {
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get('search');
   const page = searchParams.get('page');

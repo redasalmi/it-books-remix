@@ -42,7 +42,7 @@ export default function NavBar() {
     <nav className='navbar'>
       <div className='container navbar-container'>
         <div className='logo'>
-          <Link to='.' className='navbar-link'>
+          <Link to='/' className='navbar-link'>
             IT Books
           </Link>
         </div>
