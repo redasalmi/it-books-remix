@@ -4,3 +4,6 @@ node_modules
 /build
 /public/build
 /app/styles
+
+# Local Netlify folder
+.netlify
