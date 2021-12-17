@@ -1,0 +1,89 @@
+@import '_breakpoints.css';
+
+:root {
+  --navbarBg: #343a40;
+  --welcomeBg: #c8c8c8;
+  --white: #ffffff;
+  --black: #000000;
+  --orange: #e68f2c;
+  --red: #dc3545;
+  --darkRed: #da0c20;
+  --blue: #000bad;
+  --footerLink: #40bcf9;
+  --gray: #4a4a4a;
+  --bookInfoBg: #f2f2f2;
+  --imgBorder: #dee2e6;
+  --imgBg: #f8f9fa;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.content {
+  flex: 1 0 auto;
+  margin: 48px auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (--small-1) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media screen and (--medium) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media screen and (--large) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (--extra-large) {
+  .container {
+    max-width: 1140px;
+  }
+}
