@@ -6,11 +6,6 @@ const fetchBooks = async (resource: string) => {
       'Content-Type': 'application/json',
     },
   });
-
-  if (res.status !== 200) {
-    throw new Error('Network error, no books found.');
-  }
-
   const json = await res.json();
 
   return json;

@@ -1,0 +1,19 @@
+.welcome {
+  padding: 15px;
+  background-color: var(--welcome-bg);
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-container h2 {
+  text-align: center;
+  margin: 5px;
+  font-weight: 400;
+}
+
+.welcome-container h2:first-child {
+  color: var(--blue);
+}

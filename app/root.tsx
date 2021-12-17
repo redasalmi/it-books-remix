@@ -2,6 +2,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts } from 'remix';
 import type { LinksFunction } from 'remix';
 
 import Navbar, { navbarStyles } from '~/components/Navbar';
+import Welcome, { welcomeStyles } from '~/components/Welcome';
 import Footer, { footerStyles } from '~/components/Footer';
 
 import globalStyles from '~/styles/global.css';
@@ -12,6 +13,7 @@ export const links: LinksFunction = () => [
     href: globalStyles,
   },
   ...navbarStyles(),
+  ...welcomeStyles(),
   ...footerStyles(),
 ];
 
@@ -38,6 +40,7 @@ export default function App() {
       </head>
       <body>
         <Navbar />
+        <Welcome />
         <Outlet />
         <Footer />
         <Scripts />

@@ -1,0 +1,57 @@
+@import '../_breakpoints.css';
+
+.pagination-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+}
+
+.pagination-item {
+  border-color: var(--black);
+  border-left: 1px solid #c8c8c8;
+}
+
+.pagination-item:first-child {
+  border-left: none;
+}
+
+.pagination-item:hover {
+  background-color: var(--welcome-bg);
+}
+
+.pagination-active-item {
+  background-color: var(--navbar-bg) !important;
+}
+
+.pagination-disabled-item {
+  background-color: var(--white) !important;
+}
+
+.pagination-disabled-item a {
+  cursor: not-allowed;
+  color: var(--welcome-bg);
+}
+
+.pagination-link {
+  display: block;
+  padding: 10px;
+  color: var(--black);
+}
+
+.pagination-active-link {
+  color: var(--white);
+}
+
+@media screen and (--small-2) {
+  .pagination-link {
+    padding: 10px 15px;
+  }
+}
