@@ -1,7 +1,17 @@
 import * as React from 'react';
 import { Link, useLocation, useNavigate, useSearchParams } from 'remix';
+import type { LinksFunction } from 'remix';
 
-const NavBar = () => {
+import navbarStyles from '~/styles/components/navbar.css';
+
+export const links: LinksFunction = () => [
+  {
+    rel: 'stylesheet',
+    href: navbarStyles,
+  },
+];
+
+export default function NavBar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -65,6 +75,4 @@ const NavBar = () => {
       </div>
     </nav>
   );
-};
-
-export default NavBar;
+}

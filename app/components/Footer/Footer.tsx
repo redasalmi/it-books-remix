@@ -1,3 +1,14 @@
+import type { LinksFunction } from 'remix';
+
+import footerStyles from '~/styles/components/footer.css';
+
+export const links: LinksFunction = () => [
+  {
+    rel: 'stylesheet',
+    href: footerStyles,
+  },
+];
+
 export default function Footer() {
   return (
     <footer className='footer'>

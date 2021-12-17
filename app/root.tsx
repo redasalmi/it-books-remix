@@ -1,26 +1,18 @@
 import { Links, LiveReload, Meta, Outlet, Scripts } from 'remix';
 import type { LinksFunction } from 'remix';
 
-import Navbar from './components/Navbar';
-import Footer from '~/components/Footer';
+import Navbar, { navbarStyles } from '~/components/Navbar';
+import Footer, { footerStyles } from '~/components/Footer';
 
 import globalStyles from '~/styles/global.css';
-import navbarStyles from '~/styles/components/navbar.css';
-import footerStyles from '~/styles/components/footer.css';
 
 export const links: LinksFunction = () => [
   {
     rel: 'stylesheet',
     href: globalStyles,
   },
-  {
-    rel: 'stylesheet',
-    href: navbarStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: footerStyles,
-  },
+  ...navbarStyles(),
+  ...footerStyles(),
 ];
 
 export default function App() {
