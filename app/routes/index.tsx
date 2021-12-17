@@ -1,9 +1,28 @@
 import { useLoaderData, useSearchParams } from 'remix';
-import type { LoaderFunction, LinksFunction } from 'remix';
+import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
 import BooksList, { booksListStyles } from '~/components/Books/List';
 import Pagination, { paginationStyles } from '~/components/Pagination';
 import fetchBooks from '~/utils/fetchBooks';
+
+export const meta: MetaFunction = ({ data, location }) => {
+  if (!data.hasSearched) {
+    return {
+      title: 'It books - New Released Books',
+      description: 'Website for IT, Programming and Computer Science Books',
+    };
+  }
+
+  const [search, page] = location.search.split('&');
+  const getParamValue = (param: string) => param.split('=').slice(-1)[0];
+  const searchedBook = getParamValue(search);
+  const pageNumber = getParamValue(page);
+
+  return {
+    title: `IT Books - ${searchedBook} books - page ${pageNumber}`,
+    description: 'Website for IT, Programming and Computer Science Books',
+  };
+};
 
 export const links: LinksFunction = () => [
   ...booksListStyles(),

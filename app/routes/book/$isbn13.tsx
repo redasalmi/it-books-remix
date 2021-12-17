@@ -1,8 +1,22 @@
 import { useLoaderData } from 'remix';
-import type { LoaderFunction, LinksFunction } from 'remix';
+import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
 import BookDetail, { bookDetailStyles } from '~/components/Books/Detail';
 import fetchBooks from '~/utils/fetchBooks';
+
+export const meta: MetaFunction = ({ data }) => {
+  if (!data) {
+    return {
+      title: 'It books',
+      description: 'Website for IT, Programming and Computer Science Books',
+    };
+  }
+
+  return {
+    title: `IT Books - ${data.title}`,
+    description: `${data.desc}`,
+  };
+};
 
 export const links: LinksFunction = () => [...bookDetailStyles()];
 
