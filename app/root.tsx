@@ -1,16 +1,27 @@
+import { Links, LiveReload, Meta, Outlet, Scripts } from 'remix';
 import type { LinksFunction } from 'remix';
-import { Links, LiveReload, Meta, Outlet } from 'remix';
 
-import globalStyles from './styles/global.css';
+import Navbar from './components/Navbar';
+import Footer from '~/components/Footer';
 
-export const links: LinksFunction = () => {
-  return [
-    {
-      rel: 'stylesheet',
-      href: globalStyles,
-    },
-  ];
-};
+import globalStyles from '~/styles/global.css';
+import navbarStyles from '~/styles/components/navbar.css';
+import footerStyles from '~/styles/components/footer.css';
+
+export const links: LinksFunction = () => [
+  {
+    rel: 'stylesheet',
+    href: globalStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: navbarStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: footerStyles,
+  },
+];
 
 export default function App() {
   return (
@@ -34,7 +45,10 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Navbar />
         <Outlet />
+        <Footer />
+        <Scripts />
         {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
       </body>
     </html>

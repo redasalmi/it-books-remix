@@ -1,3 +1,3 @@
 export default function Books() {
-  return <div className='container'>helo it books</div>;
+  return <main className='container content'>helo it books</main>;
 }

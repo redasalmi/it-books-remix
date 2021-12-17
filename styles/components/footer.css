@@ -1,0 +1,32 @@
+.footer {
+  padding: 10px;
+  color: var(--white);
+  background-color: var(--navbar-bg);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-link {
+  color: var(--footer-link);
+}
+
+.footer-link:hover {
+  color: var(--orange);
+}
+
+.github-svg {
+  width: 45px;
+  height: 45px;
+}
+
+.github-svg path {
+  fill: var(--white);
+}
+
+.github-svg:hover path {
+  fill: var(--orange);
+}

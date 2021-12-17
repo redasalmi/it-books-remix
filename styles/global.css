@@ -1,20 +1,5 @@
+@import '_colors.css';
 @import '_breakpoints.css';
-
-:root {
-  --navbarBg: #343a40;
-  --welcomeBg: #c8c8c8;
-  --white: #ffffff;
-  --black: #000000;
-  --orange: #e68f2c;
-  --red: #dc3545;
-  --darkRed: #da0c20;
-  --blue: #000bad;
-  --footerLink: #40bcf9;
-  --gray: #4a4a4a;
-  --bookInfoBg: #f2f2f2;
-  --imgBorder: #dee2e6;
-  --imgBg: #f8f9fa;
-}
 
 html {
   box-sizing: border-box;
@@ -39,8 +24,17 @@ body {
   flex-direction: column;
 }
 
+main.content {
+  flex: 1 0 auto;
+  margin: 48px auto;
+}
+
 a {
   text-decoration: none;
+}
+
+footer {
+  flex-shrink: 0;
 }
 
 .container {
@@ -49,15 +43,6 @@ a {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
-
-.content {
-  flex: 1 0 auto;
-  margin: 48px auto;
-}
-
-.footer {
-  flex-shrink: 0;
 }
 
 .text-center {
