@@ -1,6 +1,11 @@
-# Welcome to Remix!
+# IT BOOKS
 
-- [Remix Docs](https://remix.run/docs)
+A website to browse for IT, Programming and Computer Science Books. found at: [https://itbooks-remix.netlify.app/](https://itbooks-remix.netlify.app/)
+
+## Built With
+
+- [Remix](https://remix.run/)
+- IT Bookstore API to fetch data found at: [https://api.itbook.store/](https://api.itbook.store/)
 
 ## Netlify Setup
 
