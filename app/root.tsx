@@ -1,9 +1,17 @@
-import { Links, LiveReload, Meta, Outlet, Scripts } from 'remix';
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from 'remix';
 import type { LinksFunction } from 'remix';
 
 import Navbar, { navbarStyles } from '~/components/Navbar';
 import Welcome, { welcomeStyles } from '~/components/Welcome';
 import Footer, { footerStyles } from '~/components/Footer';
+import Error, { errorStyles } from '~/components/Error';
 
 import globalStyles from '~/styles/global.css';
 
@@ -15,9 +23,14 @@ export const links: LinksFunction = () => [
   ...navbarStyles(),
   ...welcomeStyles(),
   ...footerStyles(),
+  ...errorStyles(),
 ];
 
-export default function App() {
+interface DocumentProps {
+  children: React.ReactNode;
+}
+
+function Document({ children }: DocumentProps) {
   return (
     <html lang='en'>
       <head>
@@ -40,11 +53,28 @@ export default function App() {
       <body>
         <Navbar />
         <Welcome />
-        <Outlet />
+        {children}
         <Footer />
+        <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
       </body>
     </html>
+  );
+}
+
+export default function App() {
+  return (
+    <Document>
+      <Outlet />
+    </Document>
+  );
+}
+
+export function CatchBoundary() {
+  return (
+    <Document>
+      <Error />
+    </Document>
   );
 }

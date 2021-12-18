@@ -26,8 +26,10 @@ export const loader: LoaderFunction = async ({ params }) => {
     const book = await fetchBooks(`/books/${isbn13}`);
 
     return book;
-  } catch (error) {
-    return {};
+  } catch {
+    throw new Response('Network error.', {
+      status: 404,
+    });
   }
 };
 

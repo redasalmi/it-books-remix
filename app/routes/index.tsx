@@ -44,11 +44,10 @@ export const loader: LoaderFunction = async ({ request }) => {
       data,
       hasSearched,
     };
-  } catch (error) {
-    return {
-      data: [],
-      hasSearched,
-    };
+  } catch {
+    throw new Response('Network error.', {
+      status: 404,
+    });
   }
 };
 
