@@ -12,6 +12,7 @@ export interface BooksData {
   error: string;
   page?: string;
   total: string;
+  hasSearched: boolean;
 }
 
 export interface BookData extends Book {

@@ -3,6 +3,7 @@ import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
 import BookDetail, { bookDetailStyles } from '~/components/Books/Detail';
 import fetchBooks from '~/utils/fetchBooks';
+import type { BookData } from '~/types/book';
 
 export const meta: MetaFunction = ({ data }) => {
   if (!data) {
@@ -21,9 +22,9 @@ export const meta: MetaFunction = ({ data }) => {
 export const links: LinksFunction = () => [...bookDetailStyles()];
 
 export const loader: LoaderFunction = async ({ params }) => {
-  const { isbn13 } = params;
   try {
-    const book = await fetchBooks(`/books/${isbn13}`);
+    const { isbn13 } = params;
+    const book: BookData = await fetchBooks(`/books/${isbn13}`);
 
     return book;
   } catch {
@@ -34,7 +35,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export default function BookDetailRoute() {
-  const book = useLoaderData();
+  const book = useLoaderData<BookData>();
 
   return (
     <main className='container content'>

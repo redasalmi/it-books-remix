@@ -4,6 +4,7 @@ import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 import BooksList, { booksListStyles } from '~/components/Books/List';
 import Pagination, { paginationStyles } from '~/components/Pagination';
 import fetchBooks from '~/utils/fetchBooks';
+import type { BooksData } from '~/types/book';
 
 export const meta: MetaFunction = ({ data, location }) => {
   if (!data.hasSearched) {
@@ -30,20 +31,17 @@ export const links: LinksFunction = () => [
 ];
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const url = new URL(request.url);
-  const search = url.searchParams.get('search');
-  const page = url.searchParams.get('page');
-  const hasSearched = !!(search && search?.length > 0);
-
   try {
-    const data = !hasSearched
-      ? await fetchBooks('/new')
-      : await fetchBooks(`/search/${search}/${page}`);
+    const url = new URL(request.url);
+    const search = url.searchParams.get('search');
+    const page = url.searchParams.get('page');
+    const hasSearched = !!(search && search?.length > 0);
 
-    return {
-      data,
-      hasSearched,
-    };
+    const booksData: BooksData = !hasSearched
+      ? { ...(await fetchBooks('/new')), hasSearched }
+      : { ...(await fetchBooks(`/search/${search}/${page}`)), hasSearched };
+
+    return booksData;
   } catch {
     throw new Response('Network error.', {
       status: 404,
@@ -56,8 +54,7 @@ export default function BooksRoute() {
   const search = searchParams.get('search');
   const page = searchParams.get('page');
 
-  const { data, hasSearched } = useLoaderData();
-  const { books, total } = data;
+  const { books, total, hasSearched } = useLoaderData<BooksData>();
 
   const handleChangePage = (newPage: number) => {
     setSearchParams(
