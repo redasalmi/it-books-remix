@@ -17,6 +17,24 @@ import globalStyles from '~/styles/global.css';
 
 export const links: LinksFunction = () => [
   {
+    rel: 'preload',
+    as: 'font',
+    href: '/fonts/poppins-latin-400-normal.woff2',
+    type: 'font/woff2',
+    crossOrigin: 'anonymous',
+  },
+  {
+    rel: 'preload',
+    as: 'font',
+    href: '/fonts/poppins-latin-700-normal.woff2',
+    type: 'font/woff2',
+    crossOrigin: 'anonymous',
+  },
+  {
+    rel: 'icon',
+    href: '/favicon.ico',
+  },
+  {
     rel: 'stylesheet',
     href: globalStyles,
   },
@@ -38,16 +56,6 @@ function Document({ children }: DocumentProps) {
         <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <Meta />
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link
-          rel='preconnect'
-          href='https://fonts.gstatic.com'
-          crossOrigin='true'
-        />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap'
-          rel='stylesheet'
-        />
         <Links />
       </head>
       <body>
