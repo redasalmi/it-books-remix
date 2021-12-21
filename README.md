@@ -1,6 +1,16 @@
 # IT BOOKS
 
-A website to browse for IT, Programming and Computer Science Books. found at: [https://itbooks-remix.netlify.app/](https://itbooks-remix.netlify.app/)
+A website to browse for IT, Programming and Computer Science Books. found at: [https://itbooks-remix.netlify.app/](https://itbooks-remix.netlify.app/).
+
+## Other versions
+
+This website exists in multiple versions which you can find here:
+
+- [It Books (CRA version)](https://github.com/redasalmi/it-books) found at [https://itbooks.netlify.app](https://itbooks.netlify.app/).
+
+- [It Books (Next.js version)](https://github.com/redasalmi/it-books-nextjs) found at [https://itbooks-next.netlify.app](https://itbooks-next.netlify.app/).
+
+- [It Books (Remix version)](https://github.com/redasalmi/it-books-remix) found at [https://itbooks-remix.netlify.app](https://itbooks-remix.netlify.app/).
 
 ## Built With
 
