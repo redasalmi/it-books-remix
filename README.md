@@ -1,6 +1,6 @@
 # IT BOOKS (Remix version)
 
-A website to browse for IT, Programming and Computer Science Books. found at: [https://itbooks-remix.netlify.app/](https://itbooks-remix.netlify.app/).
+A website to browse for IT, Programming and Computer Science Books. found at: [https://itbooks-remix.netlify.app](https://itbooks-remix.netlify.app/).
 
 ## Other versions
 
@@ -15,7 +15,7 @@ This website exists in multiple versions which you can find here:
 ## Built With
 
 - [Remix](https://remix.run/)
-- IT Bookstore API to fetch data found at: [https://api.itbook.store/](https://api.itbook.store/)
+- IT Bookstore API to fetch data found at: [https://api.itbook.store](https://api.itbook.store/)
 
 ## Netlify Setup
 
