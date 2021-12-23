@@ -7,8 +7,9 @@
     "dev": "concurrently \"npm run dev:css\" \"npm run dev:netlify\"",
     "dev:css": "postcss styles --base styles --dir app/styles -w",
     "dev:netlify": "cross-env NODE_ENV=development netlify dev",
-    "build": "npm run build:css && remix build",
+    "build": "npm run clean && npm run build:css && remix build",
     "build:css": "postcss styles --base styles --dir app/styles --env production",
+    "clean": "rimraf public/build && rimraf netlify/functions/server/build",
     "postinstall": "remix setup node"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
     "postcss-cli": "^9.1.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
+    "rimraf": "^3.0.2",
     "typescript": "^4.1.2"
   },
   "engines": {
