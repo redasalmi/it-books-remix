@@ -3,6 +3,8 @@ import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
 import BookDetail, { bookDetailStyles } from '~/components/Books/Detail';
 import fetchBooks from '~/utils/fetchBooks';
+import fetchImage from '~/utils/fetchImage';
+import getBase64Img from '~/utils/getBase64Img';
 import type { BookData } from '~/types/book';
 
 export const meta: MetaFunction = ({ data }) => {
@@ -25,6 +27,8 @@ export const loader: LoaderFunction = async ({ params }) => {
   try {
     const { isbn13 } = params;
     const book: BookData = await fetchBooks(`/books/${isbn13}`);
+    const uint8 = await fetchImage(book.image);
+    book.base64Image = await getBase64Img(uint8);
 
     return book;
   } catch {
