@@ -4,8 +4,6 @@ import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 import BooksList, { links as booksListLinks } from '~/components/BooksList';
 import Pagination, { links as paginationLinks } from '~/components/Pagination';
 import fetchBooks from '~/utils/fetchBooks';
-import fetchImage from '~/utils/fetchImage';
-import getBase64Img from '~/utils/getBase64Img';
 import type { BooksData } from '~/types/book';
 
 export const meta: MetaFunction = ({ data, location }) => {
@@ -42,13 +40,6 @@ export const loader: LoaderFunction = async ({ request }) => {
     const booksData: BooksData = !hasSearched
       ? { ...(await fetchBooks('/new')), hasSearched }
       : { ...(await fetchBooks(`/search/${search}/${page}`)), hasSearched };
-
-    const promises = booksData.books.map((book) =>
-      fetchImage(book.image)
-        .then((uint8) => getBase64Img(uint8))
-        .then((base64Image) => (book.base64Image = base64Image)),
-    );
-    await Promise.all(promises);
 
     return booksData;
   } catch {
