@@ -8,10 +8,10 @@ import {
 } from 'remix';
 import type { LinksFunction } from 'remix';
 
-import Navbar, { navbarStyles } from '~/components/Navbar';
-import Welcome, { welcomeStyles } from '~/components/Welcome';
-import Footer, { footerStyles } from '~/components/Footer';
-import Error, { errorStyles } from '~/components/Error';
+import Navbar, { links as navbarLinks } from '~/components/Navbar';
+import Welcome, { links as welcomeLinks } from '~/components/Welcome';
+import Footer, { links as footerLinks } from '~/components/Footer';
+import Error, { links as errorLinks } from '~/components/Error';
 
 import globalStyles from '~/styles/global.css';
 
@@ -38,10 +38,10 @@ export const links: LinksFunction = () => [
     rel: 'stylesheet',
     href: globalStyles,
   },
-  ...navbarStyles(),
-  ...welcomeStyles(),
-  ...footerStyles(),
-  ...errorStyles(),
+  ...navbarLinks(),
+  ...welcomeLinks(),
+  ...footerLinks(),
+  ...errorLinks(),
 ];
 
 interface DocumentProps {

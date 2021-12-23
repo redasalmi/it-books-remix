@@ -1,8 +1,7 @@
 import { Link } from 'remix';
 import type { LinksFunction } from 'remix';
 
-import type { BookData } from '../../../types/book';
-
+import type { BookData } from '~/types/book';
 import bookDetailStyles from '~/styles/components/book-detail.css';
 
 export const links: LinksFunction = () => [

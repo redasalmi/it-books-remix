@@ -1,8 +1,8 @@
 import { useLoaderData, useSearchParams } from 'remix';
 import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
-import BooksList, { booksListStyles } from '~/components/Books/List';
-import Pagination, { paginationStyles } from '~/components/Pagination';
+import BooksList, { links as booksListLinks } from '~/components/BooksList';
+import Pagination, { links as paginationLinks } from '~/components/Pagination';
 import fetchBooks from '~/utils/fetchBooks';
 import type { BooksData } from '~/types/book';
 
@@ -26,8 +26,8 @@ export const meta: MetaFunction = ({ data, location }) => {
 };
 
 export const links: LinksFunction = () => [
-  ...booksListStyles(),
-  ...paginationStyles(),
+  ...booksListLinks(),
+  ...paginationLinks(),
 ];
 
 export const loader: LoaderFunction = async ({ request }) => {
