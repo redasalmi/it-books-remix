@@ -1,8 +1,7 @@
-const sharp = require('sharp');
-import type { Sharp } from 'sharp';
+import sharp from 'sharp';
 
 const getBase64Img = async (uint8: Uint8Array) => {
-  const src: Sharp = sharp(uint8);
+  const src = sharp(uint8);
   const buffer = await src.toFormat('avif', { quality: 80 }).toBuffer();
   const base64Image = `data:image/avif;base64,${buffer.toString('base64')}`;
 
