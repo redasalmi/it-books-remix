@@ -41,8 +41,9 @@
 }
 
 .books-list-img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 220px;
+  height: auto;
+  aspect-ratio: 440 / 514;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -54,10 +55,30 @@
   .books-list-item {
     flex: 0 0 45%;
   }
+
+  .books-list-img {
+    width: 208px;
+  }
+}
+
+@media screen and (--medium) {
+  .books-list-img {
+    width: 289px;
+  }
 }
 
 @media screen and (--large) {
   .books-list-item {
     flex: 0 0 26%;
+  }
+
+  .books-list-img {
+    width: 220px;
+  }
+}
+
+@media screen and (--extra-large) {
+  .books-list-img {
+    width: 267px;
   }
 }

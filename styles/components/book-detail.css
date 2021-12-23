@@ -36,13 +36,13 @@
 .book-detail-img-col {
   flex: 0 0 100%;
   width: 100%;
+  text-align: center;
 }
 
 .book-detail-img {
-  max-width: 100%;
-  max-height: 100%;
-  min-width: 100%;
-  min-height: 100%;
+  width: 315px;
+  height: auto;
+  aspect-ratio: 440 / 514;
   border: 1px solid var(--img-border) !important;
   background-color: var(--img-bg);
 }
@@ -78,12 +78,20 @@
     flex: 0 0 70%;
     width: 70%;
   }
+
+  .book-detail-img {
+    width: 350px;
+  }
 }
 
 @media screen and (--medium) {
   .book-detail-img-col {
     flex: 0 0 50%;
     width: 50%;
+  }
+
+  .book-detail-img {
+    width: 345px;
   }
 }
 
@@ -105,5 +113,15 @@
 
   .book-detail-img-col {
     flex: 0 0 32%;
+  }
+
+  .book-detail-img {
+    width: 298px;
+  }
+}
+
+@media screen and (--extra-large) {
+  .book-detail-img {
+    width: 355px;
   }
 }
