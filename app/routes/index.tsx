@@ -77,7 +77,6 @@ export default function BooksRoute() {
               activePage={parseInt(page!, 10)}
               itemsCountPerPage={10}
               totalItemsCount={parseInt(total, 10)}
-              handlePageChange={handleChangePage}
             />
           ) : null}
         </>
