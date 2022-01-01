@@ -18,7 +18,9 @@ interface PaginationItemProps {
 
 function PaginationItem({ page, text, active, disabled }: PaginationItemProps) {
   const [searchParams] = useSearchParams();
-  const search = searchParams.get('search');
+  const link = `?${searchParams
+    .toString()
+    .replace(/page=\d+/, `page=${page}`)}`;
 
   const liClassName = `pagination-item ${
     active ? 'pagination-active-item' : ''
@@ -26,7 +28,6 @@ function PaginationItem({ page, text, active, disabled }: PaginationItemProps) {
   const linkClassName = `pagination-link ${
     active ? 'pagination-active-link' : ''
   }`.trim();
-  const link = !search ? `?page=${page}` : `?search=${search}&page=${page}`;
 
   return (
     <li className={liClassName}>
