@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, useLocation, useNavigate, useSearchParams, Form } from 'remix';
+import { Link, Form, useTransition } from 'remix';
 import type { LinksFunction } from 'remix';
 
 import navbarStyles from '~/styles/components/navbar.css';
@@ -12,29 +12,13 @@ export const links: LinksFunction = () => [
 ];
 
 export default function NavBar() {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const transition = useTransition();
+  const isSubmitting = transition.state === 'submitting';
+  const searchRef = React.useRef<HTMLInputElement>(null);
 
-  const [search, setSearch] = React.useState('');
-  const [, setSearchParams] = useSearchParams();
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const searchValue = event.target.value;
-    if (searchValue) {
-      setSearch(searchValue);
-    } else {
-      setSearch('');
-    }
-  };
-
-  const handleSearch = (event: React.FormEvent) => {
-    event.preventDefault();
-    if (search) {
-      if (pathname === '/') {
-        setSearchParams(new URLSearchParams(`search=${search}&page=1`));
-      } else {
-        navigate(`/?search=${search}&page=1`);
-      }
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    if (!searchRef.current?.value) {
+      event.preventDefault();
     }
   };
 
@@ -47,29 +31,69 @@ export default function NavBar() {
           </Link>
         </div>
 
-        <Form onSubmit={handleSearch} className='form'>
+        <Form method='get' action='/' className='form' onSubmit={handleSubmit}>
           <input
-            id='search'
             type='text'
-            value={search}
+            name='search'
+            ref={searchRef}
+            disabled={isSubmitting}
             className='search-input'
-            onChange={handleSearchChange}
             aria-label='Search books by title, author, ISBN'
             placeholder='Search books by title, author, ISBN'
           />
 
-          <button className='submit-btn' type='submit' aria-label='search book'>
-            <svg
-              className='search-svg'
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 24 24'
-              fill='white'
-              width='48px'
-              height='48px'
-            >
-              <path d='M0 0h24v24H0z' fill='none' />
-              <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
-            </svg>
+          <input type='text' name='page' value='1' hidden readOnly />
+
+          <button
+            type='submit'
+            className='submit-btn'
+            aria-label='search book'
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <svg
+                className='search-svg'
+                xmlns='http://www.w3.org/2000/svg'
+                xmlnsXlink='http://www.w3.org/1999/xlink'
+                aria-hidden='true'
+                role='img'
+                width='48px'
+                height='48px'
+                preserveAspectRatio='xMidYMid meet'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8a8 8 0 0 1-8 8z'
+                  opacity='.5'
+                  fill='white'
+                />
+                <path
+                  d='M20 12h2A10 10 0 0 0 12 2v2a8 8 0 0 1 8 8z'
+                  fill='#343a40'
+                >
+                  <animateTransform
+                    attributeName='transform'
+                    type='rotate'
+                    from='0 12 12'
+                    to='360 12 12'
+                    dur='1s'
+                    repeatCount='indefinite'
+                  />
+                </path>
+              </svg>
+            ) : (
+              <svg
+                className='search-svg'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='white'
+                width='48px'
+                height='48px'
+              >
+                <path d='M0 0h24v24H0z' fill='none' />
+                <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
+              </svg>
+            )}
           </button>
         </Form>
       </div>

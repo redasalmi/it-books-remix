@@ -50,21 +50,9 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function BooksRoute() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const search = searchParams.get('search');
+  const [searchParams] = useSearchParams();
   const page = searchParams.get('page');
-
   const { books, total, hasSearched } = useLoaderData<BooksData>();
-
-  const handleChangePage = (newPage: number) => {
-    setSearchParams(
-      new URLSearchParams(`search=${search}&page=${newPage.toString(10)}`),
-    );
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   return (
     <main className='container content'>

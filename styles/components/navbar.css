@@ -44,6 +44,10 @@
   border-radius: 5px 0 0 5px;
 }
 
+.search-input:disabled {
+  background-color: var(--welcome-bg);
+}
+
 .submit-btn {
   display: flex;
   align-items: center;
@@ -58,6 +62,10 @@
 
 .submit-btn:hover {
   background-color: var(--dark-red);
+}
+
+.submit-btn:disabled {
+  cursor: default;
 }
 
 .search-svg {
