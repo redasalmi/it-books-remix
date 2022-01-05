@@ -1,5 +1,3 @@
-@import '../_breakpoints.css';
-
 .books {
   display: flex;
   flex-wrap: wrap;
