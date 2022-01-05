@@ -4,13 +4,14 @@
   "description": "Website for IT, Programming and Computer Science Books",
   "license": "MIT",
   "scripts": {
-    "css": "postcss styles --base styles --dir app/styles",
-    "dev": "concurrently \"npm run dev:css\" \"npm run dev:netlify\"",
-    "dev:css": "npm run css -- --watch",
+    "css:build": "postcss styles --base styles --dir app/styles",
+    "css:build:watch": "npm run css:build -- --watch",
+    "css:build:prod": "npm run css:build -- --env production",
+    "dev": "concurrently \"npm run css:build:watch\" \"npm run dev:netlify\"",
     "dev:netlify": "cross-env NODE_ENV=development netlify dev",
-    "build": "npm run clean && npm run build:css && remix build",
-    "build:css": "npm run css -- --env production",
-    "clean": "rimraf public/build && rimraf netlify/functions/server/build",
+    "prebuild": "npm run clean",
+    "build": "npm run css:build:prod && remix build",
+    "clean": "rimraf ./node_modules/.cache ./app/styles ./public/build ./netlify/functions/server/build",
     "postinstall": "remix setup node"
   },
   "dependencies": {
