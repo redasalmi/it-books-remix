@@ -29,7 +29,7 @@ export default function Footer() {
           target='_blank'
           rel='noreferrer noopener'
           aria-label='reda salmi github account'
-          href='https://github.com/redasalmi/it-books'
+          href='https://github.com/redasalmi/it-books-remix'
         >
           <svg
             className='github-svg'
