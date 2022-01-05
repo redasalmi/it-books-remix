@@ -1,8 +1,18 @@
 {
   "private": true,
   "name": "it-books-remix",
+  "version": "1.0.0",
   "description": "Website for IT, Programming and Computer Science Books",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redasalmi/it-books-remix.git"
+  },
+  "author": "Reda Salmi <reda.salmi.elt@gmail.com> (https://redasalmi.netlify.app/)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redasalmi/it-books-remix/issues"
+  },
+  "homepage": "https://github.com/redasalmi/it-books-remix#readme",
   "scripts": {
     "css:build": "postcss styles --base styles --dir app/styles",
     "css:build:watch": "npm run css:build -- --watch",
