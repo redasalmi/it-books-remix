@@ -41,7 +41,7 @@
   width: 315px;
   height: auto;
   aspect-ratio: 440 / 514;
-  border: 1px solid var(--img-border) !important;
+  border: 1px solid var(--img-border);
   background-color: var(--img-bg);
 }
 

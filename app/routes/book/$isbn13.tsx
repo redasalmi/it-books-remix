@@ -2,9 +2,7 @@ import { useLoaderData } from 'remix';
 import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
 import BookDetail, { links as bookDetailLinks } from '~/components/BookDetail';
-import fetchBooks from '~/utils/fetchBooks';
-import fetchImage from '~/utils/fetchImage';
-import getBase64Img from '~/utils/getBase64Img';
+import { fetchBooks, fetchImage, getBase64Img } from '~/utils';
 import type { BookData } from '~/types/book';
 
 export const meta: MetaFunction = ({ data }) => {

@@ -21,16 +21,16 @@
   border-left: none;
 }
 
-.pagination-item:hover {
+.pagination-item:hover:not(.pagination-active-item):not(.pagination-disabled-item) {
   background-color: var(--welcome-bg);
 }
 
 .pagination-active-item {
-  background-color: var(--navbar-bg) !important;
+  background-color: var(--navbar-bg);
 }
 
 .pagination-disabled-item {
-  background-color: var(--white) !important;
+  background-color: var(--white);
 }
 
 .pagination-disabled-item span {
