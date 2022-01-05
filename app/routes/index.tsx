@@ -55,7 +55,7 @@ export default function BooksRoute() {
   const { books, total, hasSearched } = useLoaderData<BooksData>();
 
   return (
-    <main className='container content'>
+    <main className="container content">
       {books && books.length > 0 ? (
         <>
           <BooksList books={books} />
@@ -69,7 +69,7 @@ export default function BooksRoute() {
           ) : null}
         </>
       ) : (
-        <div className='text-center'>
+        <div className="text-center">
           <h1>Sorry, No Books Found</h1>
         </div>
       )}

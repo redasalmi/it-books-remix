@@ -80,12 +80,12 @@ export default function Pagination({
   }
 
   return (
-    <div className='pagination-container'>
-      <ul className='pagination'>
-        <PaginationItem page={1} text='«' disabled={activePage === 1} />
+    <div className="pagination-container">
+      <ul className="pagination">
+        <PaginationItem page={1} text="«" disabled={activePage === 1} />
         <PaginationItem
           page={activePage - 1}
-          text='⟨'
+          text="⟨"
           disabled={activePage === 1}
         />
 
@@ -100,12 +100,12 @@ export default function Pagination({
 
         <PaginationItem
           page={activePage + 1}
-          text='⟩'
+          text="⟩"
           disabled={activePage === pagesTotal}
         />
         <PaginationItem
           page={pagesTotal}
-          text='»'
+          text="»"
           disabled={activePage === pagesTotal}
         />
       </ul>

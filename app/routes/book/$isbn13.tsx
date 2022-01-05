@@ -42,7 +42,7 @@ export default function BookDetailRoute() {
   const book = useLoaderData<BookData>();
 
   return (
-    <main className='container content'>
+    <main className="container content">
       <BookDetail book={book} />
     </main>
   );

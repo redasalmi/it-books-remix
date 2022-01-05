@@ -33,28 +33,28 @@ const BookDetail = ({ book }: BookDetailProps) => {
 
   return (
     <div>
-      <nav className='detail-nav'>
+      <nav className="detail-nav">
         <ul>
           <li>
-            <Link to='/' className='detail-nav-link'>
+            <Link to="/" className="detail-nav-link">
               It Books
             </Link>
           </li>
-          <li className='detail-nav-title'>{title}</li>
+          <li className="detail-nav-title">{title}</li>
         </ul>
       </nav>
 
-      <div className='book-detail'>
-        <div className='book-detail-img-col'>
-          <img className='book-detail-img' src={base64Image} alt={title} />
+      <div className="book-detail">
+        <div className="book-detail-img-col">
+          <img className="book-detail-img" src={base64Image} alt={title} />
 
-          <div className='text-center'>
-            <h3 className='book-detail-title'>{title}</h3>
+          <div className="text-center">
+            <h3 className="book-detail-title">{title}</h3>
             <h3>{subtitle}</h3>
           </div>
         </div>
 
-        <div className='book-detail-info-col'>
+        <div className="book-detail-info-col">
           <table>
             <tbody>
               <tr>
