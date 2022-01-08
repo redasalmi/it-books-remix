@@ -3,7 +3,7 @@ import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
 import BookDetail, { links as bookDetailLinks } from '~/components/BookDetail';
 import { fetchBooks, fetchImage, getBase64Img } from '~/utils';
-import type { BookData } from '~/types/book';
+import type { BookData } from '~/types';
 
 export const meta: MetaFunction = ({ data }) => {
   if (!data) {

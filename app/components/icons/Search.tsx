@@ -1,4 +1,4 @@
-import { IconsProps } from '~/types/icons';
+import { IconsProps } from '~/types';
 
 export default function Search({ className }: IconsProps) {
   return (

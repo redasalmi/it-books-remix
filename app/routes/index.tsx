@@ -4,7 +4,7 @@ import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 import BooksList, { links as booksListLinks } from '~/components/BooksList';
 import Pagination, { links as paginationLinks } from '~/components/Pagination';
 import { fetchBooks } from '~/utils';
-import type { BooksData } from '~/types/book';
+import type { BooksData } from '~/types';
 
 export const meta: MetaFunction = ({ data, location }) => {
   if (!data.hasSearched) {
