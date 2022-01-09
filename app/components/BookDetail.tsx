@@ -15,7 +15,7 @@ interface BookDetailProps {
   book: BookData;
 }
 
-const BookDetail = ({ book }: BookDetailProps) => {
+export default function BookDetail({ book }: BookDetailProps) {
   const {
     title,
     base64Image,
@@ -117,6 +117,4 @@ const BookDetail = ({ book }: BookDetailProps) => {
       </div>
     </div>
   );
-};
-
-export default BookDetail;
+}

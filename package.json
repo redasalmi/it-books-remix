@@ -17,11 +17,13 @@
     "css:build": "postcss styles --base styles --dir app/styles",
     "css:build:watch": "npm run css:build -- --watch",
     "css:build:prod": "npm run css:build -- --env production",
-    "dev": "concurrently \"npm run css:build:watch\" \"npm run dev:netlify\"",
+    "svg:build": "npx @svgr/cli -- svg",
+    "svg:build:watch": "nodemon --watch svg --verbose -e svg --exec \"npm run svg:build\"",
+    "dev": "concurrently \"npm run css:build:watch\" \"npm run svg:build:watch\" \"npm run dev:netlify\"",
     "dev:netlify": "cross-env NODE_ENV=development netlify dev",
+    "clean": "rimraf ./node_modules/.cache ./app/styles ./app/components/icons ./public/build ./netlify/functions/server/build",
     "prebuild": "npm run clean",
-    "build": "npm run css:build:prod && remix build",
-    "clean": "rimraf ./node_modules/.cache ./app/styles ./public/build ./netlify/functions/server/build",
+    "build": "npm run css:build:prod && npm run svg:build && remix build",
     "postinstall": "remix setup node"
   },
   "dependencies": {
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^1.1.1",
+    "@svgr/cli": "^6.1.2",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.9",
     "@types/sharp": "^0.29.5",
@@ -42,6 +45,7 @@
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "cssnano": "^5.0.14",
+    "nodemon": "^2.0.15",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
     "postcss-custom-media": "^8.0.0",
