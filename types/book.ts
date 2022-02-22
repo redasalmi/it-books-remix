@@ -4,7 +4,6 @@ export interface Book {
   isbn13: string;
   price: string;
   image: string;
-  base64Image: string;
   url: string;
 }
 

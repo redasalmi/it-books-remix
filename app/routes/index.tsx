@@ -1,6 +1,6 @@
 import { useLoaderData, useSearchParams } from 'remix';
 
-import { fetchBooks } from '~/utils';
+import fetchBooks from '~/utils/fetchBooks.server';
 
 import { BooksList, Pagination } from '~/components';
 import styles from '~/styles/books.css';

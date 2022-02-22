@@ -9,7 +9,7 @@ interface BookDetailProps {
 export default function BookDetail({ book }: BookDetailProps) {
   const {
     title,
-    base64Image,
+    image,
     subtitle,
     authors,
     publisher,
@@ -37,7 +37,7 @@ export default function BookDetail({ book }: BookDetailProps) {
 
       <div className="book-detail">
         <div className="book-detail-img-col">
-          <img className="book-detail-img" src={base64Image} alt={title} />
+          <img className="book-detail-img" src={image} alt={title} />
 
           <div className="text-center">
             <h3 className="book-detail-title">{title}</h3>

@@ -1,6 +1,6 @@
 import { useLoaderData } from 'remix';
 
-import { fetchBooks, fetchImage, getBase64Img } from '~/utils';
+import fetchBooks from '~/utils/fetchBooks.server';
 
 import { BookDetail } from '~/components';
 import styles from '~/styles/book.css';
@@ -33,8 +33,6 @@ export const loader: LoaderFunction = async ({ params }) => {
   try {
     const { isbn13 } = params;
     const book: BookData = await fetchBooks(`/books/${isbn13}`);
-    const uint8 = await fetchImage(book.image);
-    book.base64Image = await getBase64Img(uint8);
 
     return book;
   } catch {
