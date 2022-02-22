@@ -21,6 +21,7 @@
     "svg:build:watch": "nodemon --watch svg --verbose -e svg --exec \"npm run svg:build\"",
     "dev": "concurrently \"npm run css:build:watch\" \"npm run svg:build:watch\" \"npm run dev:netlify\"",
     "dev:netlify": "cross-env NODE_ENV=development netlify dev",
+    "start": "npm run build && cross-env NODE_ENV=production BROWSER=none netlify dev",
     "clean": "rimraf ./node_modules/.cache ./app/styles ./app/components/icons ./public/build ./netlify/functions/server/build",
     "prebuild": "npm run clean",
     "build": "npm run css:build:prod && npm run svg:build && remix build",
@@ -33,7 +34,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.1.1",
-    "sharp": "^0.29.3"
+    "sharp": "^0.30.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.1.1",

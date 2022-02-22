@@ -8,4 +8,4 @@ node_modules
 
 # Local Netlify folder
 .netlify
-/netlify/functions/server/build
+/netlify/functions/server/index.js
