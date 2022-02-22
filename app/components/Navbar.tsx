@@ -1,16 +1,7 @@
 import * as React from 'react';
 import { Link, Form, useTransition } from 'remix';
-import type { LinksFunction } from 'remix';
 
 import { Spinner, Search } from '~/components/icons';
-import navbarStyles from '~/styles/components/navbar.css';
-
-export const links: LinksFunction = () => [
-  {
-    rel: 'stylesheet',
-    href: navbarStyles,
-  },
-];
 
 export default function NavBar() {
   const transition = useTransition();

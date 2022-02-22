@@ -1,9 +1,12 @@
 import { useLoaderData, useSearchParams } from 'remix';
-import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
-import BooksList, { links as booksListLinks } from '~/components/BooksList';
-import Pagination, { links as paginationLinks } from '~/components/Pagination';
 import { fetchBooks } from '~/utils';
+
+import BooksList from '~/components/BooksList';
+import Pagination from '~/components/Pagination';
+import styles from '~/styles/books.css';
+
+import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 import type { BooksData } from '~/types';
 
 export const meta: MetaFunction = ({ data, location }) => {
@@ -26,8 +29,10 @@ export const meta: MetaFunction = ({ data, location }) => {
 };
 
 export const links: LinksFunction = () => [
-  ...booksListLinks(),
-  ...paginationLinks(),
+  {
+    rel: 'stylesheet',
+    href: styles,
+  },
 ];
 
 export const loader: LoaderFunction = async ({ request }) => {

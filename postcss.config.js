@@ -3,7 +3,7 @@ module.exports = (ctx) => ({
     autoprefixer: {},
     'postcss-import': {},
     'postcss-custom-media': {
-      importFrom: 'styles/_breakpoints.css',
+      importFrom: 'styles/shared/_breakpoints.css',
     },
     cssnano: ctx.env === 'production' ? { preset: 'default' } : false,
   },

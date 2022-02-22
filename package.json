@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/redasalmi/it-books-remix#readme",
   "scripts": {
-    "css:build": "postcss styles --base styles --dir app/styles",
+    "css:build": "postcss styles/*.css --dir app/styles",
     "css:build:watch": "npm run css:build -- --watch",
     "css:build:prod": "npm run css:build -- --env production",
     "svg:build": "npx @svgr/cli -- svg",

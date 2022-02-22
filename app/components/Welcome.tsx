@@ -1,14 +1,3 @@
-import type { LinksFunction } from 'remix';
-
-import welcomeStyles from '~/styles/components/welcome.css';
-
-export const links: LinksFunction = () => [
-  {
-    rel: 'stylesheet',
-    href: welcomeStyles,
-  },
-];
-
 export default function Welcome() {
   return (
     <div className="welcome">

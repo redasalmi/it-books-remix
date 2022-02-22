@@ -1,14 +1,3 @@
-import type { LinksFunction } from 'remix';
-
-import errorStyles from '~/styles/components/error.css';
-
-export const links: LinksFunction = () => [
-  {
-    rel: 'stylesheet',
-    href: errorStyles,
-  },
-];
-
 export default function Error() {
   return (
     <main className={`container content error`}>

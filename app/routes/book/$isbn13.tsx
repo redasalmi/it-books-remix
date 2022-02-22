@@ -1,8 +1,11 @@
 import { useLoaderData } from 'remix';
-import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 
-import BookDetail, { links as bookDetailLinks } from '~/components/BookDetail';
 import { fetchBooks, fetchImage, getBase64Img } from '~/utils';
+
+import BookDetail from '~/components/BookDetail';
+import styles from '~/styles/book.css';
+
+import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
 import type { BookData } from '~/types';
 
 export const meta: MetaFunction = ({ data }) => {
@@ -19,7 +22,12 @@ export const meta: MetaFunction = ({ data }) => {
   };
 };
 
-export const links: LinksFunction = () => [...bookDetailLinks()];
+export const links: LinksFunction = () => [
+  {
+    rel: 'stylesheet',
+    href: styles,
+  },
+];
 
 export const loader: LoaderFunction = async ({ params }) => {
   try {

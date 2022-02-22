@@ -1,14 +1,4 @@
-import type { LinksFunction } from 'remix';
-
 import { Github } from '~/components/icons';
-import footerStyles from '~/styles/components/footer.css';
-
-export const links: LinksFunction = () => [
-  {
-    rel: 'stylesheet',
-    href: footerStyles,
-  },
-];
 
 export default function Footer() {
   return (

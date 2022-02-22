@@ -8,40 +8,22 @@ import {
 } from 'remix';
 import type { LinksFunction } from 'remix';
 
-import Navbar, { links as navbarLinks } from '~/components/Navbar';
-import Welcome, { links as welcomeLinks } from '~/components/Welcome';
-import Footer, { links as footerLinks } from '~/components/Footer';
-import Error, { links as errorLinks } from '~/components/Error';
-
-import globalStyles from '~/styles/global.css';
+import Fonts from '~/components/Fonts';
+import Navbar from '~/components/Navbar';
+import Welcome from '~/components/Welcome';
+import Footer from '~/components/Footer';
+import Error from '~/components/Error';
+import styles from '~/styles/global.css';
 
 export const links: LinksFunction = () => [
-  {
-    rel: 'preload',
-    as: 'font',
-    href: '/fonts/poppins-latin-400-normal.woff2',
-    type: 'font/woff2',
-    crossOrigin: 'anonymous',
-  },
-  {
-    rel: 'preload',
-    as: 'font',
-    href: '/fonts/poppins-latin-700-normal.woff2',
-    type: 'font/woff2',
-    crossOrigin: 'anonymous',
-  },
   {
     rel: 'icon',
     href: '/favicon.ico',
   },
   {
     rel: 'stylesheet',
-    href: globalStyles,
+    href: styles,
   },
-  ...navbarLinks(),
-  ...welcomeLinks(),
-  ...footerLinks(),
-  ...errorLinks(),
 ];
 
 interface DocumentProps {
@@ -55,6 +37,7 @@ function Document({ children }: DocumentProps) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <Fonts />
         <Links />
       </head>
       <body>
@@ -64,7 +47,7 @@ function Document({ children }: DocumentProps) {
         <Footer />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
+        <LiveReload />
       </body>
     </html>
   );

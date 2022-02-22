@@ -1,15 +1,6 @@
 import { Link } from 'remix';
-import type { LinksFunction } from 'remix';
 
 import type { Book } from '~/types';
-import booksListStyles from '~/styles/components/books-list.css';
-
-export const links: LinksFunction = () => [
-  {
-    rel: 'stylesheet',
-    href: booksListStyles,
-  },
-];
 
 interface BooksListProps {
   books: Book[];

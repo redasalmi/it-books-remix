@@ -1,13 +1,4 @@
-import { LinksFunction, useSearchParams, Link } from 'remix';
-
-import paginationStyles from '~/styles/components/pagination.css';
-
-export const links: LinksFunction = () => [
-  {
-    rel: 'stylesheet',
-    href: paginationStyles,
-  },
-];
+import { useSearchParams, Link } from 'remix';
 
 interface PaginationItemProps {
   page: number;
