@@ -2,8 +2,7 @@ import { useLoaderData, useSearchParams } from 'remix';
 
 import { fetchBooks } from '~/utils';
 
-import BooksList from '~/components/BooksList';
-import Pagination from '~/components/Pagination';
+import { BooksList, Pagination } from '~/components';
 import styles from '~/styles/books.css';
 
 import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';

@@ -8,11 +8,7 @@ import {
 } from 'remix';
 import type { LinksFunction } from 'remix';
 
-import Fonts from '~/components/Fonts';
-import Navbar from '~/components/Navbar';
-import Welcome from '~/components/Welcome';
-import Footer from '~/components/Footer';
-import Error from '~/components/Error';
+import { Fonts, Navbar, Welcome, Footer, Error } from '~/components';
 import styles from '~/styles/global.css';
 
 export const links: LinksFunction = () => [

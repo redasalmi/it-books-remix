@@ -2,7 +2,7 @@ import { useLoaderData } from 'remix';
 
 import { fetchBooks, fetchImage, getBase64Img } from '~/utils';
 
-import BookDetail from '~/components/BookDetail';
+import { BookDetail } from '~/components';
 import styles from '~/styles/book.css';
 
 import type { LoaderFunction, LinksFunction, MetaFunction } from 'remix';
